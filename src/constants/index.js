@@ -18,6 +18,8 @@ import {
     tailwindcss,
     threads
 } from "../assets/icons";
+import wrestling from '../assets/icons/wrestling.svg'; // Assuming wrestling.svg is the icon file
+import wrestling2 from '../assets/icons/wrestling.svg';
 export const skills = [
     {
         imageUrl: css,
@@ -100,4 +102,18 @@ export const projects = [
         description: 'It is a fully functional clone of youtube developed using ReactJS.',
         link: 'https://youtube-clone-anuj.netlify.app',
     }
+];
+export const achievements = [
+    {
+        pictureUrl: wrestling,
+        name: "National Wrestling Competition 2016",
+        type: "Sports",
+        description: 'Participated in National level Wrestling competition organized by School Games Federation of India in 2016 in Ujjain, Madhya Pradesh.'
+    },
+    {
+        pictureUrl: wrestling2,
+        name: "National Wrestling Competition 2018",
+        type: "Sports",
+        description: 'Participated in National level Wrestling competition organized by School Games Federation of India in 2018 in Dhule, Maharashtra.'
+    },
 ];

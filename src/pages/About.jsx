@@ -1,5 +1,5 @@
 import React from 'react';
-import { skills } from '../constants';
+import { achievements, skills } from '../constants';
 import CTA from '../components/CTA';
 
 const About = () => {
@@ -27,6 +27,33 @@ const About = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className='py-10 flex flex-col'>
+        <h3 className='subhead-text'>
+          My Achievements
+        </h3>
+        <div className="flex flex-wrap my-20 gap-16">
+        {achievements.map((achievement) => (
+          <div className="lg:w-[400px] w-full hover:scale-[105%] transition-all" key={achievement.name}>
+            <div className="btn-back rounded-xl" />
+              <div className="btn-front rounded-xl flex">
+                <img
+                  src={achievement.pictureUrl}
+                  alt='Wrestling Icon'
+                  className="w-12 h-12 object-contain left-0 bg-blue-400 p-2 rounded-xl"
+                />
+              </div>
+            <div className="mt-5 flex flex-col">
+              <h4 className="text-2xl font-poppins font-semibold">
+                {achievement.name}
+              </h4>
+              <p className="mt-2 text-slate-500">
+                {achievement.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
       </div>
       <hr className="border-slate-200" />
       <CTA />
