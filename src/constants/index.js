@@ -101,6 +101,13 @@ export const projects = [
         name: 'Youtube Clone',
         description: 'It is a fully functional clone of youtube developed using ReactJS.',
         link: 'https://youtube-clone-anuj.netlify.app',
+    },
+    {
+        iconUrl: snapgram,
+        theme: 'btn-back-pink',
+        name: 'BrainWave Website',
+        description: 'Built a modern websites with sleek parallax effects and bento box layouts. It is basically a modern UI/UX website, developed using React.js and Tailwind CSS',
+        link: 'https://brainwaveappanuj.netlify.app/',
     }
 ];
 export const achievements = [
