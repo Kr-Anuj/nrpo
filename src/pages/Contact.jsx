@@ -21,41 +21,38 @@ const Contact = () => {
   const handleBlur = () => setCurrentAnimation('idle');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setCurrentAnimation('hit');
-    
-    const templateParams = {
-      from_name: form.name,
-      to_name: 'Anuj Kumar',
-      from_email: form.email,
-      to_email: 'sahavanujjurel53544@gmail.com',
-      message: form.message,
-    };
-    
-    console.log('Sending email with params:', templateParams);
+  e.preventDefault();
+  setIsLoading(true);
+  setCurrentAnimation('hit');
 
-    emailjs.send(
-      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-      templateParams,
-      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-    ).then(() => {
-      setIsLoading(false);
-      showAlert({ show: true, text: 'Message Sent Successfully!', type: 'success' })
-      setTimeout (() => {
-        hideAlert();
-        setCurrentAnimation('idle');
-        setForm({ name: '', email: '', message: '' });
-      }, [3000])
-      
-    }).catch((error) => {
-      setIsLoading(false);
-      setCurrentAnimation('idle');
-      console.error('EmailJS error:', error);
-      showAlert({ show: true, text: 'Message not recieved!!!', type: 'danger' })
-    });
+  const templateParams = {
+    from_name: form.name,
+    to_name: 'Anuj Kumar',
+    from_email: form.email,
+    to_email: 'sahavanujjurel53544@gmail.com',
+    message: form.message,
   };
+
+  emailjs.send(
+    import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+    templateParams,
+    import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+  ).then(() => {
+    setIsLoading(false);
+    showAlert({ show: true, text: 'Message Sent Successfully!', type: 'success' });
+    setTimeout(() => {
+      hideAlert();
+      setCurrentAnimation('idle');
+      setForm({ name: '', email: '', message: '' });
+    }, 3000);
+  }).catch((error) => {
+    setIsLoading(false);
+    setCurrentAnimation('idle');
+    console.error('EmailJS error:', error);
+    showAlert({ show: true, text: 'Message not received!!!', type: 'danger' });
+  });
+};
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container h-[100vh]">
